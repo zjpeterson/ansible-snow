@@ -1,0 +1,15 @@
+---
+plugin: servicenow.itsm.now
+table: cmdb_ci_netgear
+columns:
+  - name
+  - ip_address
+  - location
+  - sys_id
+groups:
+  na: "'Americas' in location"
+  emea: "'Emea' in location"
+  ios: "'Cisco Catalyst' in model_id"
+  nxos: "'Cisco Nexus' in model_id"
+  junos: "'Juniper' in model_id"
+  eos: "'Arista' in model_id"
