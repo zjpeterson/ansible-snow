@@ -1,6 +1,4 @@
 ---
 collections:
-  - ansible.controller
-  - infra.controller_configuration
   - servicenow.itsm
   - ansible.network
