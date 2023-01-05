@@ -1,0 +1,32 @@
+---
+- name: Take network device backups
+  hosts: ios,eos,junos,nxos
+  gather_facts: false
+
+  tasks:
+    - name: Get current datetime
+      ansible.builtin.set_fact:
+        current_datetime: "{{ lookup('pipe', 'date \"+%Y-%m-%d %H:%M:%S\"') }}"
+      run_once: true
+
+    - name: Take config backup (network_cli)
+      ansible.netcommon.cli_config:
+        backup: true
+        backup_options:
+          dir_path: /tmp/netbackup/{{ inventory_hostname }}
+          filename: config_{{ current_datetime | regex_replace(' ', '_') }}
+      when: ansible_connection == 'ansible.netcommon.network_cli'
+
+    - name: Take config backup (netconf)
+      ansible.netcommon.netconf_config:
+        backup: true
+        backup_options:
+          dir_path: /tmp/netbackup/{{ inventory_hostname }}
+          filename: config_{{ current_datetime | regex_replace(' ', '_') }}
+      when: ansible_connection == 'ansible.netcommon.netconf'
+
+    - name: Set last backup time
+      servicenow.itsm.configuration_item:
+        sys_id: "{{ sys_id }}"
+        other:
+          u_last_backup: "{{ current_datetime }}"
