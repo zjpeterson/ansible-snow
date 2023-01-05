@@ -15,3 +15,5 @@ groups:
   nxos: "'Cisco Nexus' in model_id"
   junos: "'Juniper' in model_id"
   eos: "'Arista' in model_id"
+compose:
+  ansible_host: ip_address
