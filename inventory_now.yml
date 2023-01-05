@@ -9,7 +9,9 @@ columns:
 groups:
   na: "'Americas' in location"
   emea: "'Emea' in location"
-  ios: "'Cisco Catalyst' in model_id"
+  ios: >-
+    'Cisco Catalyst' in model_id or
+    'Cisco CSR' in model_id
   nxos: "'Cisco Nexus' in model_id"
   junos: "'Juniper' in model_id"
   eos: "'Arista' in model_id"
