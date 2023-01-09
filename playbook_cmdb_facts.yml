@@ -1,6 +1,6 @@
 ---
 - name: Update version information in CMDB
-  hosts: ios
+  hosts: ios,eos,junos,nxos
   gather_facts: true
 
   tasks:
