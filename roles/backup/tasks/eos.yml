@@ -1,0 +1,7 @@
+---
+- name: Run backup
+  arista.eos.config:
+    backup: true
+    backup_options:
+      dir_path: "{{ backup_path }}"
+  register: backup_out

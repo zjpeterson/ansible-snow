@@ -1,0 +1,9 @@
+---
+- name: Platform-specific backup
+  ansible.builtin.include_tasks: "{{ ansible_network_os.split('.')[2] }}.yml"
+
+- name: Set last backup time
+  servicenow.itsm.configuration_item:
+    sys_id: "{{ sys_id }}"
+    other:
+      u_last_backup: "{{ backup_out.date }} {{ backup_out.time }}"

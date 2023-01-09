@@ -1,0 +1,11 @@
+---
+- name: Ensure netconf enabled
+  vars:
+    ansible_connection: ansible.netcommon.network_cli
+  junipernetworks.junos.junos_netconf:
+
+- name: Run backup
+  junipernetworks.junos.junos_config:
+    backup: true
+    backup_options:
+      dir_path: "{{ backup_path }}"
