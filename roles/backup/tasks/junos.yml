@@ -1,10 +1,10 @@
 ---
-- name: Ensure netconf enabled
+- name: JunOS | Ensure netconf enabled
   vars:
     ansible_connection: ansible.netcommon.network_cli
   junipernetworks.junos.junos_netconf:
 
-- name: Run backup
+- name: JunOS | Run backup
   junipernetworks.junos.junos_config:
     backup: true
     backup_options:

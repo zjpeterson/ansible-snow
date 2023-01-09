@@ -1,12 +1,12 @@
 ---
-- name: Run backup
+- name: IOS | Run backup
   cisco.ios.config:
     backup: true
     backup_options:
       dir_path: "{{ backup_path }}"
   register: backup_out
 
-- name: Remove header lines
+- name: IOS | Remove header lines
   ansible.builtin.lineinfile:
     path: "{{ backup_out.backup_path }}"
     regexp: "{{ item }}"

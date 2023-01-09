@@ -1,5 +1,5 @@
 ---
-- name: Run backup
+- name: NX-OS | Run backup
   cisco.nxos.config:
     backup: true
     backup_options:
