@@ -6,5 +6,5 @@
 
 - name: JunOS | Restore backup
   junipernetworks.junos.junos_config:
-    src: "{{ backup_path }}/{{ inventory_hostname }}_{{ backup_date_time }}"
+    src: "{{ backup_path }}/{{ inventory_hostname }}_config.{{ backup_date_time }}"
     update: replace
