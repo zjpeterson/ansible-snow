@@ -9,3 +9,4 @@
     backup: true
     backup_options:
       dir_path: "{{ backup_path }}"
+  register: backup_out
