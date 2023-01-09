@@ -1,0 +1,7 @@
+---
+- name: Restore network device backups
+  hosts: ios,eos,junos,nxos
+  gather_facts: false
+
+  roles:
+    - restore

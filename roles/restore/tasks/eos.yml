@@ -1,0 +1,5 @@
+---
+- name: EOS | Restore backup
+  arista.eos.config:
+    src: "{{ backup_path }}/{{ inventory_hostname }}_{{ backup_date_time }}"
+    replace: config

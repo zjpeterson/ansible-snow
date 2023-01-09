@@ -1,0 +1,5 @@
+---
+- name: NX-OS | Restore backup
+  cisco.nxos.config:
+    src: "{{ backup_path }}/{{ inventory_hostname }}_{{ backup_date_time }}"
+    replace: config

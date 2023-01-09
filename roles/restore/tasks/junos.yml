@@ -1,0 +1,10 @@
+---
+- name: JunOS | Ensure netconf enabled
+  vars:
+    ansible_connection: ansible.netcommon.network_cli
+  junipernetworks.junos.junos_netconf:
+
+- name: JunOS | Restore backup
+  junipernetworks.junos.junos_config:
+    src: "{{ backup_path }}/{{ inventory_hostname }}_{{ backup_date_time }}"
+    update: replace
