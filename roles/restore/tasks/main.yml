@@ -1,3 +1,7 @@
 ---
+- name: Set locaton of backup file
+  ansible.builtin.set_fact:
+    backup_file: "{{ backup_path }}/{{ inventory_hostname }}_config.{{ backup_date_time }}"
+
 - name: Platform-specific restore
   ansible.builtin.include_tasks: "{{ ansible_network_os.split('.')[2] }}.yml"

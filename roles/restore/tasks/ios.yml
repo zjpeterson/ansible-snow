@@ -1,4 +1,4 @@
 ---
 - name: IOS | Restore backup
   cisco.ios.config:
-    src: "{{ backup_path }}/{{ inventory_hostname }}_config.{{ backup_date_time }}"
+    src: "{{ backup_file }}"
