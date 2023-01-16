@@ -1,0 +1,4 @@
+---
+- name: JunOS | Unsupported
+  ansible.builtin.debug:
+    msg: JunOS not yet supported

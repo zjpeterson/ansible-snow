@@ -1,0 +1,4 @@
+---
+- name: NX-OS | Unsupported
+  ansible.builtin.debug:
+    msg: NX-OS not yet supported

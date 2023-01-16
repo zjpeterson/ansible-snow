@@ -1,0 +1,4 @@
+---
+- name: EOS | Unsupported
+  ansible.builtin.debug:
+    msg: EOS not yet supported
