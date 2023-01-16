@@ -1,2 +1,2 @@
 ---
-backup_path: /tmp/netbackup/{{ sys_id }}
+backup_path: /tmp/net_backup/{{ sys_id }}
