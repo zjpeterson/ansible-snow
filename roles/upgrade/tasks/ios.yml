@@ -1,4 +1,7 @@
 ---
-- name: IOS | Unsupported
-  ansible.builtin.debug:
-    msg: IOS not yet supported
+- name: Copy image file
+  vars: 
+    ansible_command_timeout: 600
+  ansible.netcommon.net_put:
+    src: "{{ image_root }}/{{ ansible_network_os.split('.')[2] }}/{{ image_name }}"
+    dest: "bootflash:{{ image_name }}"

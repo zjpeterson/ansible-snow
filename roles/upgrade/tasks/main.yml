@@ -2,12 +2,6 @@
 - name: Display current OS version
   ansible.builtin.debug:
     msg: Currently running {{ ansible_net_version }}
-    
-- name: Copy image file
-  vars: 
-    ansible_command_timeout: 600
-  ansible.netcommon.net_put:
-    src: "{{ image_root }}/{{ ansible_network_os.split('.')[2] }}/{{ image_name }}"
 
 - name: Platform-specific upgrade
   ansible.builtin.include_tasks: "{{ ansible_network_os.split('.')[2] }}.yml"
